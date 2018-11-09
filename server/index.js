@@ -15,24 +15,28 @@ var messages = [
         'likedBy':[
             2134214321,23453543
         ],
+        'ts':1541794235903,
     },
     {
         'message_id' : 2,
         'user' : 'ahmad',
         'text' : 'contact me !',
         'likedBy':[],
+        'ts':1541794235903,
     },
     {
         'message_id' : 3,
         'user' : 'bahram',
         'text' : 'please call !',
         'likedBy':[],
+        'ts':1541794235903,
     },
     {
         'message_id' : 4,
         'user' : 'reza',
         'text' : 'Hello !',
         'likedBy':[],
+        'ts':1542344235903,
     },
 ];
 
