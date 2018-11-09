@@ -45,4 +45,11 @@ io.on('connection',(socket)=>{
         messages.push(data);
         io.sockets.emit('messages',messages);
     });
+    socket.on('update_likes',(data)=>{
+        var message = messages.filter(function (message) {
+            return message.message_id == data.message_id;
+        })[0];
+        message.likedBy = data.likedBy;
+        io.sockets.emit('messages',messages);
+    });
 });

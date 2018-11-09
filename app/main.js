@@ -62,6 +62,7 @@ function addLike(message) {
     else{
         message.likedBy.splice(index,1);
     }
+    socket.emit('update_likes',message);
     render();
     return false
 }
