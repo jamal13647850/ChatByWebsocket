@@ -11,22 +11,22 @@ io.on('connection',(socket)=>{
     let messages = [
         {
             'message_id' : 1,
-            'user' : 'ehsan',
-            'text' : 'Hello !',
+            'user' : 'jamal',
+            'text' : 'Hello word!',
         },
         {
             'message_id' : 2,
-            'user' : 'ehsan',
-            'text' : 'Hello !',
+            'user' : 'ahmad',
+            'text' : 'contact me !',
         },
         {
             'message_id' : 3,
-            'user' : 'ehsan',
-            'text' : 'Hello !',
+            'user' : 'bahram',
+            'text' : 'please call !',
         },
         {
             'message_id' : 4,
-            'user' : 'ehsan',
+            'user' : 'reza',
             'text' : 'Hello !',
         },
     ];
