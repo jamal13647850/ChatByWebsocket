@@ -19,3 +19,14 @@ socket.on('messages',(data)=>{
                      <hr>`;
     }).join(' ');
 });
+
+function sendMessage() {
+    let text = document.getElementById("message").value;
+    socket.emit("new_message",{
+        'message_id' : 6,
+        'user' : 'Guest',
+        'text' : text,
+    });
+    document.getElementById("message").value = "";
+    return false;
+}

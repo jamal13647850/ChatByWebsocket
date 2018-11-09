@@ -1,7 +1,7 @@
-let express = require('express');
-let app = express();
-let server = require('http').Server(app);
-let io = require('socket.io')(server);
+var express = require('express');
+var app = express();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
 
 server.listen(80);
 
@@ -32,4 +32,9 @@ io.on('connection',(socket)=>{
     ];
     socket.emit('messages',messages);
     console.log("User connected");
+
+    socket.on('new_message',(data)=>{
+        messages.push(data);
+        io.sockets.emit('messages',messages);
+    });
 });
