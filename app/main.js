@@ -2,6 +2,34 @@ let socket = io.connect('http://localhost',{
     'forceNew':true
 });
 
+var user = getUser() || generateUser();
+
+function getUser() {
+    const user = localStorage.getItem('user');
+    if(user){
+        return JSON.parse(user);
+    }
+    return false;
+}
+
+function generateUser(){
+    let uid , uname;
+    uid = generateRandom();
+    uname = prompt("Please enter your name:");
+    if(uname===""){
+        uname="Guest";
+    }
+    user = {
+        'id':uid,
+        'name':uname
+    };
+    localStorage.setItem('user',JSON.stringify(user) );
+    return user;
+}
+function generateRandom(){
+    return Math.floor(Math.random() * 1e11);
+}
+
 socket.on('messages',(data)=>{
     console.log(data);
     document.getElementById('messages').innerHTML = data.map((message)=>{
@@ -23,8 +51,8 @@ socket.on('messages',(data)=>{
 function sendMessage() {
     let text = document.getElementById("message").value;
     socket.emit("new_message",{
-        'message_id' : 6,
-        'user' : 'Guest',
+        'message_id' : generateRandom(),
+        'user' : user.name,
         'text' : text,
     });
     document.getElementById("message").value = "";
